@@ -42,3 +42,25 @@ gunicorn -c /path/to/config/file projectname.[wsgi]
 We can verify that the site is deployed by visiting the ip address of the machine
 
 ![enter image description here](https://i.imgur.com/4wc4XOy.png)
+
+Since we have no views configured the web server shows Not Found Page
+
+Next, to dump the access logs and error logs we can use the following command
+
+```bash
+gunicorn -c ~/conf/gunicorn.conf.py sampleproject.wsgi --access-logfile access.log --error-log error.log
+```
+
+here the flage **access-logfile** generates the access logs on **access.log** file and **--error-log** generates the error logs on **error.log** file
+
+![enter image description here](https://i.imgur.com/nLGz33L.png)
+
+We can simply use the cat/less utility to view the log file
+
+access.log file >>>
+
+![enter image description here](https://i.imgur.com/cEtSA26.png)
+
+error.log file >>>>
+
+![enter image description here](https://i.imgur.com/GeiWK5h.png)
